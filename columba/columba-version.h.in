@@ -1,0 +1,72 @@
+/* columba-version.h -- API and ABI version information
+ * Copyright (c) 2014 James Thompson <tomahack@mail2tor.com>
+ *
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use, copy,
+ * modify, merge, publish, distribute, sublicense, and/or sell copies
+ * of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+ * BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+ * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+#if !defined(COLUMBA_VERSION_H)
+#define COLUMBA_VERSION_H
+
+#if !defined (COLUMBA_H_INSIDE)
+#error "Only <columba/columba.h> can be included directly."
+#endif
+
+#define COLUMBA_VERSION_MAJOR @COLUMBA_VERSION_MAJOR@
+#define COLUMBA_VERSION_MINOR @COLUMBA_VERSION_MINOR@
+#define COLUMBA_VERSION_MICRO @COLUMBA_VERSION_MICRO@
+#define COLUMBA_VERSION_API   "@COLUMBA_VERSION_API@"
+
+#define COLUMBA_VERSION(major,minor,micro) ((COLUMBA_VERSION_MAJOR << 16) | (COLUMBA_VERSION_MINOR << 8) | (COLUMBA_VERSION_MICRO))
+#define COLUMBA_VERSION_CURRENT COLUMBA_VERSION(COLUMBA_VERSION_MAJOR, COLUMBA_VERSION_MINOR, COLUMBA_VERSION_MICRO)
+
+#define COLUMBA_VERSION_EXTRACT_MAJOR(v) ((v >> 16) & 0xff)
+#define COLUMBA_VERSION_EXTRACT_MINOR(v) ((v >> 8)  & 0xff)
+#define COLUMBA_VERSION_EXTRACT_MICRO(v) ((v)       & 0xff)
+
+#define COLUMBA_AVAILABLE_IN_ALL COLUMBA_PUBLIC
+
+/* TOOD: AVAILABLE_IN_$MAJOR_$MINOR, plus all the
+   MIN_REQUIRED/MAX_ALLOWED stuff to go with it.  Only makes sense
+   after we start making releases, though. */
+
+COLUMBA_BEGIN_DECLS
+
+COLUMBA_AVAILABLE_IN_ALL unsigned int columba_version (void) COLUMBA_CONST;
+
+COLUMBA_END_DECLS
+
+#endif /* !defined(COLUMBA_VERSION_H) */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

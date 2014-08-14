@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for HOOK_PATH in ./hooks/pre-commit.d/*; do
+	./${HOOK_PATH} || exit -1
+done

@@ -1,0 +1,5 @@
+#!/usr/bin/gpk-install-catalog
+
+[PackageKit Catalog]
+
+InstallPackages(fedora)=gcc;libsodium-devel;leveldb-devel;protobuf-c-devel;libev-devel

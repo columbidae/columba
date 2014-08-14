@@ -1,0 +1,19 @@
+((nil . ((indent-tabs-mode . t)
+		 (fill-column . 80)
+		 (tab-width . 4)
+		 (c-basic-offset . 4)))
+ (c-mode . (
+			(eval . (setq ac-clang-cflags (split-string (concat "-DCOLUMBA_COMPILATION "
+																"@CMOCKA_CFLAGS@ "
+																"@LIBEV_CFLAGS@ "
+																"@LIBSODIUM_CFLAGS@ "
+																"@LIBCURVECPR_CFLAGS@ "
+																"@LEVELDB_CFLAGS@ "
+																"@PROTOBUF_C_CFLAGS@ "
+																"-I" (file-name-directory
+																	  (let ((d (dir-locals-find-file ".")))
+																		(if (stringp d) d (car d))))))))
+			(eval . (ac-clang-update-cmdlineargs))
+			)
+		 )
+ )
